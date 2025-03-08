@@ -17,21 +17,17 @@ const SearchResult = async ({ searchParam }) => {
             {loading &&
                 <div className="w-80 sm:w-[560px] md:w-[662px] lg:w-[800px] h-[400px] shadow-custom border-2 rounded-3xl overflow-clip bg-palette-cream-1 flex flex-col self-center">
                     <div className=" h-16 w-full rounded-t-3xl px-6 content-center">
-
                     </div>
-
                     <div className="fill-foreground bg-foreground h-0.5 w-full" />
-                    <div className="h-full w-full  rounded-b-3xl flex flex-row items-center justify-center text-4xl">
+                    <div className="h-full w-full rounded-b-3xl flex flex-row items-center justify-center text-4xl self-center">
                         Loading...
                     </div>
                 </div>
             }
             {!loading && data?.pokemon === null &&
-                <div className="w-80 sm:w-[560px]  md:w-[662px] lg:w-[800px] h-[400px] shadow-custom border-2 rounded-3xl overflow-clip bg-palette-cream-1 flex flex-col  self-center">
+                <div className="w-80 sm:w-[560px]  md:w-[662px] lg:w-[800px] h-[400px] shadow-custom border-2 rounded-3xl overflow-clip bg-palette-cream-1 flex flex-col self-center">
                     <div className=" h-16 rounded-t-3xl px-6 content-center">
-
                     </div>
-
                     <div className="fill-foreground bg-foreground h-0.5 w-full" />
                     <div className="h-full w-full rounded-b-3xl flex flex-row items-center justify-center text-4xl">
                         Not Found</div>
@@ -49,7 +45,7 @@ const SearchResult = async ({ searchParam }) => {
 
             {data?.pokemon &&
                 <div className="w-80 sm:w-[560px] md:w-[662px] lg:w-[800px] md:h-[400px] shadow-custom border-2 rounded-3xl overflow-clip bg-palette-cream-1 flex flex-col self-center">
-                    <div className=" h-16 w-full bg-palette-orange px-6 content-center text-3xl">
+                    <div className="h-16 w-full bg-palette-orange px-6 flex content-center items-center text-3xl">
                         {data?.pokemon?.number} {data?.pokemon?.name}
                     </div>
 
@@ -60,21 +56,19 @@ const SearchResult = async ({ searchParam }) => {
                                 <Image alt={data?.pokemon?.name} src={data?.pokemon?.image} fill />
                             </div>
                         </div>
-
                         <div className="fill-foreground bg-foreground w-0.5 h-full" />
                         <div className="flex-1 w-full h-full flex flex-col sm:overflow-y-scroll">
-
                             <div className="fill-foreground bg-foreground h-0.5 w-full min-w-full md:invisible" />
-                            <div className="w-full h-10 px-4 py-2 flex flex-row items-center text-xl">
+                            <div className="w-full h-10 px-4 py-2 flex flex-row gap-x-2 items-center text-xl">
                                 {data?.pokemon?.classification}
-                                <div className="hidden sm:flex flex-row">
+                                <div className="hidden sm:flex md:hidden lg:flex flex-row gap-x-2">
                                     {data?.pokemon?.types.map((type: string, index: Key) => (
                                         <PokemonType key={index} type={type} />
                                     ))}
                                 </div>
                             </div>
-                            <div className="sm:hidden fill-foreground bg-foreground h-0.5 min-h-0.5 w-full min-w-full" />
-                            <div className="sm:hidden h-10 px-4 py-2 flex flex-row gap-2 content-between items-center">
+                            <div className="flex sm:hidden md:flex lg:hidden fill-foreground bg-foreground h-0.5 min-h-0.5 w-full min-w-full" />
+                            <div className="flex sm:hidden md:flex lg:hidden h-10 px-4 py-2 flex-row gap-2 content-between items-center">
                                 {data?.pokemon?.types.map((type: string, index: Key) => (
                                     <PokemonType key={index} type={type} />
                                 ))}
