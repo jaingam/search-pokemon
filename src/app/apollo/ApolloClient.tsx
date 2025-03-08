@@ -1,4 +1,3 @@
-'use server'
 import { HttpLink } from "@apollo/client";
 import {
   ApolloClient,

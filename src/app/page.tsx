@@ -126,12 +126,11 @@ export default async function Home({
 }) {
 
   const searchParam = await searchParams;
-
   return (
    <main className="min-h-screen bg-palette-cream-2 flex flex-col gap-8 items-center py-40">
 
         <SearchBar />
-        <Suspense fallback={
+        <Suspense key={searchParam.name} fallback={
           <div className="w-80 sm:w-[560px]  md:w-[662px] lg:w-[800px] h-[400px] shadow-custom border-2 rounded-3xl overflow-clip bg-palette-cream-1 flex flex-col">
                     <div className=" h-16 w-full rounded-t-3xl px-6 content-center">
 
@@ -143,7 +142,7 @@ export default async function Home({
                     </div>
                 </div>
               }>
-          <SearchResult searchParam={searchParam} />
+          {Object.getOwnPropertyNames(searchParam).length !== 0 && <SearchResult searchParam={searchParam} />}
 
         </Suspense>
       </main>

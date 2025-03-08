@@ -1,18 +1,21 @@
 import { POKEMON } from "../queries/queries";
 import Image from "next/image";
 import Link from "next/link";
-import { query } from "../ApolloClient";
+import { query } from "../apollo/ApolloClient";
 import { Key } from "react";
 import PokemonType from "./PokemonType";
 
 const SearchResult = async ({ searchParam }) => {
     // const { loading, data, refetch } = useQuery(POKEMON, { variables: { name: searchParam.name } });
     const { loading, data, error } = await query({ query: POKEMON, variables: { name: searchParam.name } })
+    // const [ loading, data, error ] = [true,{pokemon:{name:"",number:"",fleeRate:0,maxHP:0,maxCP:0,classification:"",types:[],resistant:[],weaknesses:[],weight:{minimum:0,maximum:0},
+    // height:{minimum:0,maximum:0},image:"",attacks:{fast:[],special:[],},evolutions:[]}},{message:""}]
     //Next.js recommended fetching data on the server first
+
     return (
         <div className="font-medium flex flex-col gap-8">
             {loading &&
-                <div className="w-80 sm:w-[560px] md:w-[662px] lg:w-[800px] h-[400px] shadow-custom border-2 rounded-3xl overflow-clip bg-palette-cream-1 flex flex-col">
+                <div className="w-80 sm:w-[560px] md:w-[662px] lg:w-[800px] h-[400px] shadow-custom border-2 rounded-3xl overflow-clip bg-palette-cream-1 flex flex-col self-center">
                     <div className=" h-16 w-full rounded-t-3xl px-6 content-center">
 
                     </div>
@@ -24,7 +27,7 @@ const SearchResult = async ({ searchParam }) => {
                 </div>
             }
             {!loading && data?.pokemon === null &&
-                <div className="w-80 sm:w-[560px]  md:w-[662px] lg:w-[800px] h-[400px] shadow-custom border-2 rounded-3xl overflow-clip bg-palette-cream-1 flex flex-col">
+                <div className="w-80 sm:w-[560px]  md:w-[662px] lg:w-[800px] h-[400px] shadow-custom border-2 rounded-3xl overflow-clip bg-palette-cream-1 flex flex-col  self-center">
                     <div className=" h-16 rounded-t-3xl px-6 content-center">
 
                     </div>
@@ -34,7 +37,7 @@ const SearchResult = async ({ searchParam }) => {
                         Not Found</div>
                 </div>}
             {!loading && error !== null && error !== undefined &&
-                <div className="w-80 sm:w-[560px]  md:w-[662px] lg:w-[800px] h-[400px] shadow-custom border-2 rounded-3xl overflow-clip bg-palette-cream-1 flex flex-col">
+                <div className="w-80 sm:w-[560px]  md:w-[662px] lg:w-[800px] h-[400px] shadow-custom border-2 rounded-3xl overflow-clip bg-palette-cream-1 flex flex-col self-center">
                     <div className=" h-16 w-full rounded-t-3xl px-6 content-center">
 
                     </div>
@@ -73,7 +76,7 @@ const SearchResult = async ({ searchParam }) => {
                             <div className="sm:hidden fill-foreground bg-foreground h-0.5 min-h-0.5 w-full min-w-full" />
                             <div className="sm:hidden h-10 px-4 py-2 flex flex-row gap-2 content-between items-center">
                                 {data?.pokemon?.types.map((type: string, index: Key) => (
-                                    <PokemonType key={index} type={type}  />
+                                    <PokemonType key={index} type={type} />
                                 ))}
                             </div>
                             <div className="fill-foreground bg-foreground h-0.5 min-h-0.5 w-full" />
@@ -110,13 +113,13 @@ const SearchResult = async ({ searchParam }) => {
                             <div className="px-4 py-2 flex flex-row flex-wrap gap-2 content-between items-center text-xl">
                                 Resistant
                                 {data?.pokemon?.resistant.map((type: string, index: Key) => (
-                                    <PokemonType key={index} type={type}  />
+                                    <PokemonType key={index} type={type} />
                                 ))}
                             </div>
                             <div className="px-4  py-2 flex flex-row flex-wrap gap-2 content-between items-center text-xl">
                                 Weaknesses
                                 {data?.pokemon?.weaknesses.map((type: string, index: Key) => (
-                                    <PokemonType key={index} type={type}/>
+                                    <PokemonType key={index} type={type} />
                                 ))}
 
                             </div>

@@ -64,6 +64,10 @@ export const POKEMON = gql`
         name
         image
       }
+      evolutionRequirements{
+        amount
+        name
+      }
     image
     }
 }
