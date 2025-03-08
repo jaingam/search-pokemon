@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Jersey_10 } from "next/font/google";
 import "./globals.css";
-import { ApolloWrapper } from "./ApolloWrapper";
+// import { ApolloWrapper } from "./ApolloWrapper";
 
 const jersey = Jersey_10({
   weight: "400",
@@ -26,9 +26,10 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`antialiased ${jersey.variable}`}
-      > <ApolloWrapper>
+      > 
+      {/* <ApolloWrapper> */}
           {children}
-        </ApolloWrapper>
+        {/* </ApolloWrapper> */}
       </body>
 
     </html>
