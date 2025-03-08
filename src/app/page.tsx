@@ -1,5 +1,6 @@
-import Result from "./components/Result";
+import SearchResult from "./components/SearchResult";
 import SearchBar from "./components/SearchBar";
+import { Suspense } from "react";
 
 // type Pokemon = {
 //   "number": "string",
@@ -121,18 +122,30 @@ import SearchBar from "./components/SearchBar";
 export default async function Home({
   searchParams,
 }: {
-  searchParams: Promise<{name?: string;}>
+  searchParams: Promise<{ name?: string; }>
 }) {
 
   const searchParam = await searchParams;
 
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-       
-        <SearchBar/>
-        <Result searchParam={searchParam}/>
+   <main className="min-h-screen bg-palette-cream-2 flex flex-col gap-8 items-center py-40">
+
+        <SearchBar />
+        <Suspense fallback={
+          <div className="w-80 sm:w-[560px]  md:w-[662px] lg:w-[800px] h-[400px] shadow-custom border-2 rounded-3xl overflow-clip bg-palette-cream-1 flex flex-col">
+                    <div className=" h-16 w-full rounded-t-3xl px-6 content-center">
+
+                    </div>
+
+                    <div className="fill-foreground bg-foreground h-0.5 w-full" />
+                    <div className="h-full w-full  rounded-b-3xl flex flex-row">
+                        Loading...
+                    </div>
+                </div>
+              }>
+          <SearchResult searchParam={searchParam} />
+
+        </Suspense>
       </main>
-    </div>
   );
 }

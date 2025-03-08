@@ -1,3 +1,6 @@
+Icons are from [Flaticon](https://www.flaticon.com/free-icons/heart) and [Icons8](https://icons8.com).
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started

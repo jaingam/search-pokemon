@@ -46,8 +46,25 @@ export const POKEMON = gql`
             fleeRate
             maxCP
             maxHP
-            image
-        }
-    }
-`;
 
+    attacks{
+        fast{
+          name
+          type
+          damage
+        }
+        special{
+          name
+          type
+          damage
+        }
+      }
+      evolutions{
+        number
+        name
+        image
+      }
+    image
+    }
+}
+`;

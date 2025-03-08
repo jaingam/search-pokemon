@@ -1,17 +1,15 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Jersey_10 } from "next/font/google";
 import "./globals.css";
 import { ApolloWrapper } from "./ApolloWrapper";
 
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const jersey = Jersey_10({
+  weight: "400",
+  variable: "--font-jersey-10",
+  style: "normal",
+  preload: true,
   subsets: ["latin"],
-});
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
@@ -26,12 +24,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        > <ApolloWrapper>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Jersey+20&display=swap" rel="stylesheet" />
+      </head>
+      <body
+        className={`antialiased ${jersey.variable}`}
+      > <ApolloWrapper>
           {children}
-          </ApolloWrapper>
-        </body>
+        </ApolloWrapper>
+      </body>
 
     </html>
   );
