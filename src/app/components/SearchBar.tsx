@@ -1,4 +1,5 @@
 "use client"
+import Image from "next/image";
 import { usePathname, useRouter, useSearchParams } from "next/navigation.js";
 const SearchBar = () => {
     const searchParams = useSearchParams();
@@ -17,21 +18,19 @@ const SearchBar = () => {
 
     return (
 
-        <div className="bg-white flex flex-row w-80 sm:w-[560px] md:w-[662px] lg:w-[800px] border-2 rounded-3xl px-2 py-1 shadow-custom">
-            <input className="w-full"
+        <div className="bg-white flex flex-row w-80 sm:w-[560px] md:w-[662px] lg:w-[800px] border-2 rounded-3xl px-2 py-1 text-2xl items-center shadow-custom">
+            <input className="w-full outline-0"
                 onKeyDown={(e) => {
                     if (e.key === 'Enter')
                         handleSearch(e.currentTarget.value);
                 }}
+
                 defaultValue={searchParams.get('name')?.toString()}
                 placeholder="Search a pokemon, press Enter..."
                 name="search-field"
             />
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
-                <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-            </svg>
-
-
+                 <Image width={24} height={24} src="https://cdn-icons-png.flaticon.com/512/7734/7734281.png" alt="search" />
+                                                  
         </div>
     );
 }

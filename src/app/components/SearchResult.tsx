@@ -59,20 +59,25 @@ const SearchResult = async ({ searchParam }) => {
                         <div className="fill-foreground bg-foreground w-0.5 h-full" />
                         <div className="flex-1 w-full h-full flex flex-col sm:overflow-y-scroll">
                             <div className="fill-foreground bg-foreground h-0.5 w-full min-w-full md:invisible" />
+
                             <div className="w-full h-10 px-4 py-2 flex flex-row gap-x-2 items-center text-xl">
                                 {data?.pokemon?.classification}
-                                <div className="hidden sm:flex md:hidden lg:flex flex-row gap-x-2">
+                                {/* <div className="hidden sm:flex md:hidden lg:flex flex-row gap-x-2">
+                                 */}
+                                <div className="flex flex-row gap-x-2">
                                     {data?.pokemon?.types.map((type: string, index: Key) => (
                                         <PokemonType key={index} type={type} />
                                     ))}
                                 </div>
                             </div>
+                            
+                            {/* 
                             <div className="flex sm:hidden md:flex lg:hidden fill-foreground bg-foreground h-0.5 min-h-0.5 w-full min-w-full" />
                             <div className="flex sm:hidden md:flex lg:hidden h-10 px-4 py-2 flex-row gap-2 content-between items-center">
                                 {data?.pokemon?.types.map((type: string, index: Key) => (
                                     <PokemonType key={index} type={type} />
                                 ))}
-                            </div>
+                            </div> */}
                             <div className="fill-foreground bg-foreground h-0.5 min-h-0.5 w-full" />
                             <div className="w-full sm:h-10 px-4 py-2 flex flex-row justify-between  items-center text-xl">
                                 <span>Weight</span><span>{data?.pokemon?.weight.minimum} - {data?.pokemon?.weight.maximum}</span>
@@ -132,7 +137,7 @@ const SearchResult = async ({ searchParam }) => {
                             <div className="px-4  py-2 flex flex-row flex-wrap gap-2 content-between items-center text-xl">
                                 Attacks
                                 {data?.pokemon?.attacks.fast.map((attack: { name: string, type: string, damage: string }, index: Key) => (
-                                    <div key={index} className="flex flex-col bg-palette-bubblegum-pink gap-y-1 p-1 px-2.5 border-2 text-base text-center justify-center items-center">
+                                    <div key={index} className="flex flex-col bg-palette-rose-pink gap-y-1 p-1 px-2.5 border-2 text-base text-center justify-center items-center">
                                         <div>
                                             {attack.name}
                                         </div>
@@ -143,10 +148,10 @@ const SearchResult = async ({ searchParam }) => {
                                     </div>
                                 ))}
                                 {data?.pokemon?.attacks.special.map((attack: { name: string, type: string, damage: string }, index: Key) => (
-                                    <div key={index} className="flex flex-col bg-palette-bubblegum-pink gap-y-1 p-1 px-2.5 border-2 text-base text-center  justify-center items-center">
+                                    <div key={index} className="flex flex-col bg-palette-rose-pink gap-y-1 p-1 px-2.5 border-2 text-base text-center  justify-center items-center">
                                         <div className="flex flex-row gap-x-1">
                                             {attack.name}
-                                            <Image width={24} height={24} src="https://img.icons8.com/office/40/pixel-star.png" alt="pixel-star" />
+                                            <Image width={24} height={24} src="https://img.icons8.com/color/48/pixel-star.png" alt="pixel-star" />
                                         </div>
                                         <div>
                                             Dmg {attack.damage}
@@ -163,7 +168,7 @@ const SearchResult = async ({ searchParam }) => {
             }
             {
                 data?.pokemon?.evolutions &&
-                <div className="flex flex-row w-screen gap-8 overflow-x-scroll px-12 content-between">
+                <div className="flex flex-row w-dvw gap-8 overflow-x-scroll px-12 scroll-px-12 content-between items-center justify-center">
                     {data?.pokemon?.evolutions?.map((evoPoke: { name: string, number: string, image: string }, index: number) => (
                         <Link href={`/?name=${evoPoke.name}`} key={index} >
                             <div className="w-80 md:w-[336px] shadow-custom mb-4 border-2 rounded-3xl overflow-clip bg-palette-cream-1 flex flex-col">
