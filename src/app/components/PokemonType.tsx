@@ -1,127 +1,122 @@
-"use client"
-import { useEffect, useState, } from "react"
+
 import "../globals.css"
 
-const PokemonType = ({ key, type }) => {
-    const [className, setClassName] = useState(`w-fit rounded-full px-2 bg-${type.toLowerCase()} text-${type.toLowerCase()}`)
-    console.log(className)
-    useEffect(() => {
-        setClassName(`w-fit rounded-full px-2 bg-${type.toLowerCase()} text-${type.toLowerCase()}`)
-    }, [type])
+const PokemonType = ({  type }) => {
+    const className  = `w-fit rounded-full px-3 bg-${type.toLowerCase()} text-${type.toLowerCase()}`;
 
-    //Classnames have to be specific to be exported? This miight be a temporary fix.
+    //Classnames have to be specific to be exported? This might be a temporary fix.
+
     if (type == "Normal")
         return (
-
-            <div key={key} className={`w-fit rounded-full px-2 bg-normal`}>
+            <div className={`w-fit rounded-full px-3 bg-normal text-white`}>
                 {type}
             </div>
         );
 
     if (type == "Fire")
         return (
-            <div key={key} className={`w-fit rounded-full px-2 bg-fire`}>
+            <div  className={`w-fit rounded-full px-3 bg-fire`}>
                 {type}
             </div>
         );
     if (type == "Water")
         return (
-            <div key={key} className={`w-fit rounded-full px-2 bg-water`}>
+            <div  className={`w-fit rounded-full px-3 bg-water text-white`}>
                 {type}
             </div>
         );
     if (type == "Electric")
         return (
-            <div key={key} className={`w-fit rounded-full px-2 bg-electric`}>
+            <div  className={`w-fit rounded-full px-3 bg-electric`}>
                 {type}
             </div>
         );
 
     if (type == "Grass")
         return (
-            <div key={key} className={`w-fit rounded-full px-2 bg-grass`}>
+            <div  className={`w-fit rounded-full px-3 bg-grass`}>
                 {type}
             </div>
         );
     if (type == "Ice")
         return (
-            <div key={key} className={`w-fit rounded-full px-2 bg-ice`}>
+            <div  className={`w-fit rounded-full px-3 bg-ice`}>
                 {type}
             </div>
         ); if (type == "Fighting")
         return (
-            <div key={key} className={`w-fit rounded-full px-2 bg-fighting`}>
+            <div className={`w-fit rounded-full px-3 bg-fighting text-white`}>
                 {type}
             </div>
         ); if (type == "Poison")
         return (
-            <div key={key} className={`w-fit rounded-full px-2 bg-poison`}>
+            <div className={`w-fit rounded-full px-3 bg-poison text-white`}>
                 {type}
             </div>
         );
     if (type == "Ground")
         return (
-            <div key={key} className={`w-fit rounded-full px-2 bg-ground`}>
+            <div className={`w-fit rounded-full px-3 bg-ground`}>
                 {type}
             </div>
         );
     if (type == "Flying")
         return (
-            <div key={key} className={`w-fit rounded-full px-2 bg-flying`}>
+            <div className={`w-fit rounded-full px-3 bg-flying`}>
                 {type}
             </div>
         );
 
     if (type == "Psychic")
         return (
-            <div key={key} className={`w-fit rounded-full px-2 bg-psychic`}>
+            <div className={`w-fit rounded-full px-3 bg-psychic`}>
                 {type}
             </div>
         );
     if (type == "Bug")
         return (
-            <div key={key} className={`w-fit rounded-full px-2 bg-bug`}>
+            <div className={`w-fit rounded-full px-3 bg-bug`}>
                 {type}
             </div>
         );
     if (type == "Ghost")
         return (
-            <div key={key} className={`w-fit rounded-full px-2 bg-ghost`}>
+            <div className={`w-fit rounded-full px-3 bg-ghost text-white`}>
                 {type}
             </div>
         );
     if (type == "Rock")
         return (
-            <div key={key} className={`w-fit rounded-full px-2 bg-rock`}>
+            <div className={`w-fit rounded-full px-3 bg-rock`}>
                 {type}
             </div>
         );
     if (type == "Dragon")
         return (
-            <div key={key} className={`w-fit rounded-full px-2 bg-dragon`}>
+            <div className={`w-fit rounded-full px-3 bg-dragon text-white`}>
                 {type}
             </div>
         );
     if (type == "Dark")
         return (
-            <div key={key} className={`w-fit rounded-full px-2 bg-dark`}>
+            <div className={`w-fit rounded-full px-3 bg-dark  text-white`}>
                 {type}
             </div>
         );
     if (type == "Steel")
         return (
-            <div key={key} className={`w-fit rounded-full px-2 bg-steel`}>
+            <div className={`w-fit rounded-full px-3 bg-steel`}>
                 {type}
             </div>
         );
     if (type == "Fairy")
         return (
-            <div key={key} className={`w-fit rounded-full px-2 bg-fairy`}>
+            <div className={`w-fit rounded-full px-3 bg-fairy`}>
                 {type}
             </div>
         );
     else return (
-        <div key={key} className={className}>
+        <div className={className}>
             {type}
         </div>
     );
