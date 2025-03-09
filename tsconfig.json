@@ -23,6 +23,6 @@
     },
     "noImplicitAny": false
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/queries/queries.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/queries/queries.js", "src/tests/tests.test.tsx"],
   "exclude": ["node_modules"]
 }
